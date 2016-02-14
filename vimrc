@@ -2,6 +2,9 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+"Plugins for visual drag"
+runtime plugin/dragvisuals.vim
+
 "Line numbers"
 set number
 "Tell me the name of the file I'm editing"
@@ -158,10 +161,10 @@ vnoremap <C-Up> 3k
 vnoremap <C-Down> 3j
 
 "For moving the screen, but not the cursor..."
-nnoremap <S-Up> <C-y>
-nnoremap <S-Down> <C-e>
-inoremap <S-Up> <C-o><C-y>
-inoremap <S-Down> <C-o><C-e>
+"nnoremap <S-Up> <C-y>
+"nnoremap <S-Down> <C-e>
+"inoremap <S-Up> <C-o><C-y>
+"inoremap <S-Down> <C-o><C-e>
 
 "For there are things faster than <C-w>w"
 nnoremap <C-w><C-Left>  <C-w><Left>
@@ -205,6 +208,16 @@ nnoremap <silent> <Leader>ss
 			\ :setlocal spell spelllang=en_gb<CR>
 nnoremap <silent> <Leader>sa
 			\ :setlocal nospell<CR>
+
+"I am accustomed to using tab and shift-tab for indenting and unindenting"
+vnoremap <Tab> >
+vnoremap <S-Tab> <
+
+"Visual drag keys"
+vmap  <expr>  <S-LEFT>   DVB_Drag('left')
+vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
+vmap  <expr>  <S-DOWN>   DVB_Drag('down')
+vmap  <expr>  <S-UP>     DVB_Drag('up')
 
 "For exceeding 80 characters in a line"
 if exists('+colorcolumn')

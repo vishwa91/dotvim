@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+'''
+Description of files goes here.
+'''
+
+# System imports
+import os
+import sys
+import time
+import cPickle
+
+# Scientific computing
+import numpy as np
+import scipy as sp
+import scipy.linalg as lin
+import scipy.ndimage as ndim
+
+# Plotting
+import matplotlib.pyplot as plt
+
+if __name__ == '__main__':
+	pass
