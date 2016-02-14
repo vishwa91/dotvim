@@ -149,16 +149,16 @@ nnoremap <Leader>c <Nop>
 vnoremap <Leader>c <Nop>
 
 "For moving up and down faster, but not as fast as PgUp and PgDn"
-nnoremap <C-k> 3k
-nnoremap <C-j> 3j
-vnoremap <C-k> 3k
-vnoremap <C-j> 3j
-nnoremap <C-Up> 3k
-nnoremap <C-Down> 3j
-inoremap <C-Up> <C-o>3k
-inoremap <C-Down> <C-o>3j
-vnoremap <C-Up> 3k
-vnoremap <C-Down> 3j
+nmap <C-k> 3k
+nmap <C-j> 3j
+vmap <C-k> 3k
+vmap <C-j> 3j
+nmap <C-Up> 3k
+nmap <C-Down> 3j
+imap <C-Up> <C-o>3k
+imap <C-Down> <C-o>3j
+vmap <C-Up> 3k
+vmap <C-Down> 3j
 
 "For moving the screen, but not the cursor..."
 "nnoremap <S-Up> <C-y>
@@ -226,9 +226,21 @@ else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+"For adding file templates from .vim/templates"
+au BufNewFile * :silent! exec ":0r ".$HOME."/.vim/templates/template.".&ft.
+			\ " | :normal Gdd$"
+
 "For setting the search match colour appropriately"
 highlight Search ctermbg=011 ctermfg=000
 
 "For inverting colours on selection"
 highlight clear Visual
 highlight Visual cterm=reverse
+
+"LaTeX shortcuts"
+nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 
+nnoremap <silent> <Leader>li i\begin{itemize}\end{itemize}O\item 
+nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
+nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
+nnoremap <silent> <Leader>la i\begin{align}\end{align}O
+nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
