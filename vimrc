@@ -33,7 +33,7 @@ set t_Co=16
 "Use fancy symbols in powerline"
 let g:Powerline_symbols = "fancy"
 "Ignore some file endings while expanding"
-set wildignore=*.o,*~,*.pyc,.git
+set wildignore=*.o,*~,*.pyc,.git,*.swo,*.swp,*~
 "New vertical windows appear on the right of the existing window"
 set splitright
 "Set timeout values for mappings and keycodes"
@@ -153,12 +153,14 @@ nmap <C-k> 3k
 nmap <C-j> 3j
 vmap <C-k> 3k
 vmap <C-j> 3j
-nmap <C-Up> 3k
-nmap <C-Down> 3j
-imap <C-Up> <C-o>3k
-imap <C-Down> <C-o>3j
-vmap <C-Up> 3k
-vmap <C-Down> 3j
+
+"Move lines up and down"
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+inoremap <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <C-Up> <Esc>:m .-2<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
 
 "For moving the screen, but not the cursor..."
 "nnoremap <S-Up> <C-y>
@@ -210,8 +212,8 @@ nnoremap <silent> <Leader>sa
 			\ :setlocal nospell<CR>
 
 "I am accustomed to using tab and shift-tab for indenting and unindenting"
-vnoremap <Tab> >
-vnoremap <S-Tab> <
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 "Visual drag keys"
 vmap  <expr>  <S-LEFT>   DVB_Drag('left')
