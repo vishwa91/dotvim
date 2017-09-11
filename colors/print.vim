@@ -1,24 +1,24 @@
-set background=dark
+set background=light
 hi clear
 if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "vader"
+let g:colors_name = "print"
 
-hi Normal                           ctermfg=252
-hi Comment             cterm=italic ctermfg=244
-hi String                           ctermfg=076
-hi Number                           ctermfg=196
-hi Constant                         ctermfg=208
-hi Special                          ctermfg=191
-hi Identifier            cterm=none ctermfg=011
-hi Statement             cterm=bold ctermfg=214
-hi PreProc                          ctermfg=135
-hi Type                  cterm=bold ctermfg=011
-hi Function                         ctermfg=039
-hi Operator                         ctermfg=026
-hi Ignore                           ctermfg=008
+hi Normal                           ctermfg=000
+hi Comment             cterm=italic ctermfg=247
+hi String                           ctermfg=034
+hi Number                           ctermfg=160
+hi Constant                         ctermfg=166
+hi Special                          ctermfg=118
+hi Identifier            cterm=none ctermfg=003
+hi Statement             cterm=bold ctermfg=208
+hi PreProc                          ctermfg=128
+hi Type                  cterm=bold ctermfg=214
+hi Function                         ctermfg=026
+hi Operator                         ctermfg=019
+hi Ignore                           ctermfg=007
 hi Error                            ctermfg=124
 hi Todo                             ctermfg=000 ctermbg=011
 hi MatchParen            cterm=bold ctermfg=160 ctermbg=none
@@ -86,6 +86,6 @@ hi link VimHiAttrib      Number
 hi link VimOption        Identifier
 
 " Miscellaneous
-hi LineNr                ctermfg=238
-hi ColorColumn                       ctermbg=235
-hi SpecialKey            ctermfg=237
+hi LineNr                ctermfg=251
+hi ColorColumn                       ctermbg=255
+hi SpecialKey            ctermfg=250

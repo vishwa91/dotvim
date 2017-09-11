@@ -15,6 +15,8 @@ set tabstop=4
 set shiftwidth=4
 "Do C-style indentation automatically"
 set cindent
+"Make backspace work like in most other apps"
+set backspace=indent,eol,start
 "Highlight search results"
 set hlsearch
 "Ignore case while searching..."
@@ -47,6 +49,8 @@ set nofoldenable
 set modeline
 "Treat all sh files as bash scripts for syntax highlighting"
 let g:is_bash = 1
+"Treat all tex files as latex files"
+let g:tex_flavor = "latex"
 
 "Switch on syntax highlighting"
 syntax on
@@ -139,6 +143,9 @@ inoremap <C-u> <Esc>viwUea
 "- The escape helps exit visual mode when the line is already empty"
 nnoremap dl 0v$hx<Esc>
 
+"For attaching an indented line to the end of the previous line (with a space)"
+nnoremap d<Backspace> ^d0i<Backspace> <Esc>
+
 "For opening vimrc quickly"
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 "For loading vimrc changes quickly"
@@ -225,7 +232,7 @@ vmap  <expr>  <S-UP>     DVB_Drag('up')
 if exists('+colorcolumn')
 	set colorcolumn=80
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+	au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%>80v.\+', -1)
 endif
 
 "For adding file templates from .vim/templates"
@@ -246,3 +253,7 @@ nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
 nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
 nnoremap <silent> <Leader>la i\begin{align}\end{align}O
 nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
+
+"Shortcut for nonumber"
+nnoremap <Leader>n :set number<CR>
+nnoremap <Leader>nn :set nonumber<CR>
