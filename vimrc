@@ -51,6 +51,10 @@ set modeline
 let g:is_bash = 1
 "Treat all tex files as latex files"
 let g:tex_flavor = "latex"
+"Enable Powerline"
+set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
+"Always show statusline"
+set laststatus=2
 
 "Switch on syntax highlighting"
 syntax on
@@ -98,6 +102,11 @@ nmap <silent> <M-Left> <,
 nmap <silent> <M-Right> >,
 imap <silent> <M-Left> <C-o><,
 imap <silent> <M-Right> <C-o>>,
+
+"For jumping to the last position when reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 "For when you forget to open a file with sudo"
 noremap <Leader>ww :w !sudo tee % >/dev/null<CR>
