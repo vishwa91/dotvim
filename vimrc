@@ -70,6 +70,7 @@ vnoremap <Space> :
 nnoremap <silent> <Backspace> i<Backspace><C-o>:stopinsert<CR>
 
 "For copying and pasting text through the system clipboard"
+set clipboard=unnamedplus
 noremap <Leader>y "+y
 noremap <Leader>p "+p
 noremap <Leader>P "+P
